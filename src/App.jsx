@@ -25,6 +25,14 @@ function CupFixed({guestNumber}){
   return <p>Tea cup for guest {guestNumber}</p>
 }
 
+function TeaGathering(){
+  let cups = [];
+  for(let i=0; i<12; i++){
+    cups.push(<CupFixed key={i} guestNumber={i+1} />)
+  }
+  return cups;
+}
+
 function App() {
 
   return (
@@ -45,6 +53,13 @@ function App() {
       <CupFixed guestNumber = {1} />
       <CupFixed guestNumber = {2} />
       <CupFixed guestNumber = {3} />
+      <br />
+      <h2>Mutation:</h2>
+      <p>Component change a preexisting variable while rendering: MUTATION</p>
+      <p>Pure Functions - Dont mutate variables/objects that were created before the call </p>
+      <p>HOWEVER: Its OK change variables/objects that you've just created while rendering</p>
+      <h2>TEA GATHERING</h2>
+      <TeaGathering />
     </>
   )
 }
